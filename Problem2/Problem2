@@ -20,6 +20,7 @@ We can provide a simple solution to this by utilizing the nginx docker image fro
   1. create an account in https://openweathermap.org/
   2. go to account home and get the API Key
   
+  
   Testing:
   1. Run the below command with a valid zip code and country code
         curl "http://localhost/data/2.5/weather?APPID=c7620611e7529068213d87845159260d&zip=75035,us&&units=imperial"
@@ -27,6 +28,7 @@ We can provide a simple solution to this by utilizing the nginx docker image fro
   3. it supports all the diffent api's that openweathermap supports since this is just a reverse proxy solution without investing anything on heavy programming or builds.
         curl "http://localhost/data/2.5/weather?APPID=c7620611e7529068213d87845159260d&q=Chicago&units=metric"
   4. output can be printed in either standard/default, metric, imerial units.
+  5. Refer https://openweathermap.org/current for all available operations that this app supports.
   
   
   
