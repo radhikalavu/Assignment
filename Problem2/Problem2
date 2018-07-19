@@ -9,7 +9,7 @@ We can provide a simple solution to this by utilizing the nginx docker image fro
 3. create a default.conf file and add the below line to it (default.conf is available under Problem2/docker folder)
     proxy_pass  https://api.openweathermap.org/;
 4. write a Dockerfile to build a custom nginx image and tag it as v1. use the default.conf created in step3
-    docker build -t nginx:v1 .
+    docker build -t radhikalavu/nginx:v1 .
 5. create kubernetes deployment by using the deployment.yml file under Problem2/kubernetes folder.
     kubectl apply -f deployment.yml
  6. create kubernetes service by using the service.yml file under Problem2/kubernetes folder.
