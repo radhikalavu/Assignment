@@ -1,3 +1,33 @@
-Problem Statement: Create a small micro-service in a language of your choice that returns the
-weather for a given zip code or city (only need to implement one way) and
-deploy it to a Kubernetes cluster.
+Problem Statement: Create a small micro-service in a language of your choice that returns the weather for a given zip code or city (only need to implement one way) and deploy it to a Kubernetes cluster.
+
+Solution:
+We can provide a simple solution to this by utilizing the nginx docker image from official docker hub repository and configuring nginx web server to make api calls to openweathermap.org
+
+1. install docker on the local machine or server
+2. download nginx:latest image from docker hub
+    docker pull nginx:latest
+3. create a default.conf file and add the below line to it (default.conf is available under Problem2/docker folder)
+    proxy_pass  https://api.openweathermap.org/;
+4. write a Dockerfile to build a custom nginx image and tag it as v1. use the default.conf created in step3
+    docker build -t nginx:v1 .
+5. create kubernetes deployment by using the deployment.yml file under Problem2/kubernetes folder.
+    kubectl apply -f deployment.yml
+ 6. create kubernetes service by using the service.yml file under Problem2/kubernetes folder.
+    kubectl apply -f service.yml
+    
+  
+  Prerequisites for testing:
+  1. create an account in https://openweathermap.org/
+  2. go to account home and get the API Key
+  
+  Testing:
+  1. Run the below command with a valid zip code and country code
+  curl "http://localhost/data/2.5/weather?APPID=c7620611e7529068213d87845159260d&zip=75035,us&&units=imperial"
+  2. zip and country code can be changed to get weather details for a different location.
+  3. it supports all the diffent api's that openweathermap supports since this is just a reverse proxy solution without investing anything on heavy programming or builds.
+  4. output can be printed in either standard/default, metric, imerial units.
+  
+  
+  
+    
+
