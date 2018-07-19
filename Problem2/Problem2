@@ -1,0 +1,3 @@
+Problem Statement: Create a small micro-service in a language of your choice that returns the
+weather for a given zip code or city (only need to implement one way) and
+deploy it to a Kubernetes cluster.
