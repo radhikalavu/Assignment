@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: weatherapp
-        image: nginx:v1
+        image: radhikalavu/nginx:v1
         ports:
         - containerPort: 80
